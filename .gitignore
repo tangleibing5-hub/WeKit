@@ -33,3 +33,7 @@ local.properties
 /app/src/main/java/nuke/data/cipher/NativeCrypto.kt
 /app/src/main/java/dev/ujhhgtg/wekit/features/items/debug/LoadWeChatXDex.kt
 /app/src/main/java/dev/ujhhgtg/wekit/features/items/debug/MTH7851.kt
+
+# Reference APKs used for decompilation & local agent workspace
+/*.apk
+/.monkeycode/
