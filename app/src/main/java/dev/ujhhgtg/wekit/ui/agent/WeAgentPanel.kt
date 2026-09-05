@@ -64,6 +64,7 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -85,6 +86,7 @@ import com.composables.icons.materialsymbols.outlinedfilled.Star
 import dev.ujhhgtg.wekit.activity.agent.WeAgentSettingsActivity
 import dev.ujhhgtg.wekit.features.api.agent.WeAgentService
 import dev.ujhhgtg.wekit.features.api.agent.WeAgentService.ChatRow
+import dev.ujhhgtg.wekit.features.items.beautify.MainScreenMediaDrawer
 import dev.ujhhgtg.wekit.utils.android.copyToClipboard
 import dev.ujhhgtg.wekit.utils.android.showToast
 
@@ -196,6 +198,10 @@ private fun SessionDrawerContent(modifier: Modifier, onClose: () -> Unit) {
                 }
             }
             Spacer(Modifier.height(4.dp))
+            if (MainScreenMediaDrawer.isEnabled) {
+                MainScreenMediaDrawer.MediaDrawerContent(LocalContext.current)
+                HorizontalDivider(Modifier.padding(vertical = 6.dp))
+            }
             LazyColumn(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                 items(sessions, key = { it.id }) { s ->
                     val selected = s.id == current
