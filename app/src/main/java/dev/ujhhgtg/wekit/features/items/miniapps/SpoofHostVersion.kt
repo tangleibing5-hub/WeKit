@@ -1,12 +1,17 @@
 package dev.ujhhgtg.wekit.features.items.miniapps
 
+import dev.ujhhgtg.wekit.R
 import dev.ujhhgtg.wekit.dexkit.abc.IResolveDex
 import dev.ujhhgtg.wekit.dexkit.dsl.dexConstructor
-import dev.ujhhgtg.wekit.features.core.Feature
+import dev.ujhhgtg.wekit.features.core.FeatureCategoryIds
 import dev.ujhhgtg.wekit.features.core.SwitchFeature
 
-@Feature(name = "伪装宿主版本", categories = ["小程序"], description = "解决提示版本较低无法使用部分小程序")
 object SpoofHostVersion : SwitchFeature(), IResolveDex {
+
+    override val technicalId = "伪装宿主版本"
+    override val nameRes = R.string.feature_spoof_host_version_name
+    override val categoryIds = listOf(FeatureCategoryIds.MINIAPPS)
+    override val descriptionRes = R.string.feature_spoof_host_version_description
 
     override fun onEnable() {
         ctorCgiLaunchWxaAppFunc1122.hookBefore {
